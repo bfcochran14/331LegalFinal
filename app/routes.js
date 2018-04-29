@@ -5,6 +5,9 @@ var MongoClient = require('mongodb').MongoClient;
 var db;
 const url = 'mongodb://ben:admin@ds237979.mlab.com:37979/ndadocument';
 
+var sourcePdf= "../ndaV1.pdf"
+var destinationPdf= "../ndaV2."
+
 MongoClient.connect(url, function(err, client){
 	if (err) return console.log(err)
   	db = client.db('ndadocument') // whatever your database name is
@@ -66,6 +69,9 @@ module.exports = function(app, passport,promise) {
         req.logout();
         res.redirect('/');
     });
+		app.get('/pdf',function(req,res){
+			res.render('pdf.ejs');
+		});
     app.post('/signup', passport.authenticate('local-signup', {
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
@@ -277,7 +283,7 @@ if(req.body.question7 == 'item2')
 		console.log('inside collection function')
     	if (err) return console.log(err)
     	console.log('saved to database')
-    	res.redirect('/profile')
+    	res.redirect('/pdf')
   	})
 	 db.collection('nda').find().toArray(function(err, results){
 		 console.log(results);
