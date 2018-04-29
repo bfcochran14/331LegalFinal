@@ -1,5 +1,6 @@
 // app/routes.js
 var surveyData = require('../app/models/surveyData');
+var User = require('../app/models/user');
 
 var MongoClient = require('mongodb').MongoClient;
 var db;
@@ -279,7 +280,7 @@ if(req.body.question7 == 'item2')
     	console.log('saved to database')
     	res.redirect('/profile')
   	})
-	 db.collection('nda').find().toArray(function(err, results){
+	 db.collection('nda').find({"question2":"Kain"}).toArray(function(err, results){
 		 console.log(results);
 	 });
 }
