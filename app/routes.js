@@ -279,4 +279,7 @@ if(req.body.question7 == 'item2')
     	console.log('saved to database')
     	res.redirect('/profile')
   	})
+	 db.collection('nda').find().toArray(function(err, results){
+		 console.log(results);
+	 });
 }
