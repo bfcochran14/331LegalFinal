@@ -71,8 +71,13 @@ module.exports = function(app, passport,promise) {
         res.redirect('/');
     });
 		app.get('/pdf',function(req,res){
-			res.render('pdf.ejs');
+
+			db.collection('nda').find().sort({ "_id": -1 }).limit(1).toArray(function(err, results){
+				console.log(results);
+				res.render('pdf.ejs', {nda: results})
+			});
 		});
+
     app.post('/signup', passport.authenticate('local-signup', {
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
@@ -283,10 +288,17 @@ if(req.body.question7 == 'item2')
 	db.collection('nda').save(req.body, (err, result) => {
 		console.log('inside collection function')
     	if (err) return console.log(err)
+
     	console.log('saved to database')
     	res.redirect('/pdf')
   	})
-	 db.collection('nda').find({"question2":"Kain"}).toArray(function(err, results){
-		 console.log(results);
-	 });
+		db.collection('nda').find().sort({ "_id": -1 }).limit(1).toArray(function(err, results){
+			console.log(results);
+			res.render('pdf.ejs', {nda: results})
+		});
+
+
+	// db.collection('nda').find({"_id":1}).toArray(function(err, results){
+		 //console.log(results);
+	 //});
 }
