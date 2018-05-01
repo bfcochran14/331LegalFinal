@@ -280,9 +280,170 @@ else if (req.body.question6 == 'item52') {
 
 
 //scrub question 7
+if(req.body.question7 == 'item1')
+{
+	req.body.question7 = 'Yes';
+}
 if(req.body.question7 == 'item2')
 {
 	req.body.question7 = 'No';
+}
+
+//scrub question 8
+if(req.body.question8 == 'item1')
+	req.body.question8 = 'Alabama';
+else if (req.body.question8 == 'item2') {
+	req.body.question8 = 'Alaska';
+}
+else if (req.body.question8 == 'item3') {
+	req.body.question8 = 'Arizona';
+}
+else if (req.body.question8 == 'item4') {
+	req.body.question8 = 'Arkansas';
+}
+else if (req.body.question8 == 'item5') {
+	req.body.question8 = 'Calafornia';
+}
+else if (req.body.question8 == 'item6') {
+	req.body.question8 = 'Colorado';
+}
+else if (req.body.question8 == 'item7') {
+	req.body.question8 = 'Connecticut';
+}
+else if (req.body.question8 == 'item8') {
+	req.body.question8 = 'Delaware';
+}
+else if (req.body.question8 == 'item9') {
+	req.body.question8 = 'Florida';
+}
+else if (req.body.question8 == 'item10') {
+	req.body.question8 = 'Georgia';
+}
+else if (req.body.question8 == 'item11') {
+	req.body.question8 = 'Hawaii';
+}
+else if (req.body.question8 == 'item12') {
+	req.body.question8 = 'Idaho';
+}
+else if (req.body.question8 == 'item13') {
+	req.body.question8 = 'Illinois';
+}
+else if (req.body.question8 == 'item14') {
+	req.body.question8 = 'Indiana';
+}
+else if (req.body.question8 == 'item15') {
+	req.body.question8 = 'Iowa';
+}
+else if (req.body.question8 == 'item16') {
+	req.body.question8 = 'Kansas';
+}
+else if (req.body.question8 == 'item17') {
+	req.body.question8 = 'Kentucky';
+}
+else if (req.body.question8 == 'item18') {
+	req.body.question8 = 'Louisiana';
+}
+else if (req.body.question8 == 'item19') {
+	req.body.question8 = 'Maine';
+}
+else if (req.body.question8 == 'item20') {
+	req.body.question8 = 'Maryland';
+}
+else if (req.body.question8 == 'item21') {
+	req.body.question8 = 'Massachusetts';
+}
+else if (req.body.question8 == 'item22') {
+	req.body.question8 = 'Michigan';
+}
+else if (req.body.question8 == 'item23') {
+	req.body.question8 = 'Minnesota';
+}
+else if (req.body.question8 == 'item24') {
+	req.body.question8 = 'Mississippi';
+}
+else if (req.body.question8 == 'item25') {
+	req.body.question8 = 'Missouri';
+}
+else if (req.body.question8 == 'item26') {
+	req.body.question8 = 'Montana';
+}
+else if (req.body.question8 == 'item27') {
+	req.body.question8 = 'Nebraska';
+}
+else if (req.body.question8 =='item28' ) {
+	req.body.question8 = 'Nevada';
+}
+else if (req.body.question8 == 'item29') {
+	req.body.question8 = 'New Hampshire';
+}
+else if (req.body.question8 == 'item30' ) {
+	req.body.question8 = 'New Jersey';
+}
+else if (req.body.question8 == 'item31') {
+	req.body.question8 = 'New Mexico';
+}
+else if (req.body.question8 == 'item32') {
+	req.body.question8 = 'New York';
+}
+else if (req.body.question8 == 'item33') {
+	req.body.question8 = 'North Carolina';
+}
+else if (req.body.question8 == 'item34') {
+	req.body.question8 = 'North Dakota';
+}
+else if (req.body.question8 == 'item35' ) {
+	req.body.question8 = 'Ohio';
+}
+else if (req.body.question8 == 'item36') {
+	req.body.question8 = 'Oklahoma';
+}
+else if (req.body.question8 == 'item37') {
+	req.body.question8 = 'Oregon';
+}
+else if (req.body.question8 == 'item38') {
+	req.body.question8 = 'Pennsylvania';
+}
+else if (req.body.question8 == 'item39') {
+	req.body.question8 = 'Rhode Island';
+}
+else if (req.body.question8 == 'item40') {
+	req.body.question8 = 'South Carolina';
+}
+else if (req.body.question8 == 'item41') {
+	req.body.question8 = 'South Dakota';
+}
+else if (req.body.question8 == 'item42') {
+	req.body.question8 = 'Tennessee';
+}
+else if (req.body.question8 == 'item43') {
+	req.body.question8 = 'Texas';
+}
+else if (req.body.question8 == 'item44') {
+	req.body.question8 = 'Utah';
+}
+else if (req.body.question8 == 'item45') {
+	req.body.question8 = 'Vermont';
+}
+else if (req.body.question8 == 'item46') {
+	req.body.question8 = 'Virginia';
+}
+else if (req.body.question8 == 'item47') {
+	req.body.question8 = 'Washington';
+}
+else if (req.body.question8 == 'item48') {
+	req.body.question8 = 'West Virginia';
+}
+else if (req.body.question8 == 'item49') {
+	req.body.question8 = 'Wisconsin';
+}
+else if (req.body.question8 == 'item50') {
+	req.body.question8 = 'Wyoming';
+}
+else if (req.body.question8 == 'item51') {
+	req.body.question8 = 'Puerto Rico';
+}
+else if (req.body.question8 == 'item52') {
+	req.body.question8 = 'District of Columbia';
 }
 	console.log("post recieved")
 	db.collection('nda').save(req.body, (err, result) => {
