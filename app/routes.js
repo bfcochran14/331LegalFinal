@@ -2,12 +2,13 @@
 var surveyData = require('../app/models/surveyData');
 var User = require('../app/models/user');
 
+var PDFDocument = require('pdfkit')
 var MongoClient = require('mongodb').MongoClient;
 var db;
 const url = 'mongodb://ben:admin@ds237979.mlab.com:37979/ndadocument';
 
-var sourcePdf= "../ndaV1.pdf"
-var destinationPdf= "../ndaV2."
+//var sourcePdf= "../ndaV1.pdf"
+//var destinationPdf= "../ndaV2."
 
 MongoClient.connect(url, function(err, client){
 	if (err) return console.log(err)
@@ -451,11 +452,13 @@ else if (req.body.question8 == 'item52') {
     	if (err) return console.log(err)
 
     	console.log('saved to database')
-    	res.redirect('/pdf')
+    	//console.log(req.body)
+    	//res.redirect('/pdf')
+    	showPDF(req.body, res);
   	})
 		db.collection('nda').find().sort({ "_id": -1 }).limit(1).toArray(function(err, results){
-			console.log(results);
-			res.render('pdf.ejs', {nda: results})
+			//console.log(results);
+			//res.render('pdf.ejs', {nda: results})
 		});
 
 
@@ -463,3 +466,38 @@ else if (req.body.question8 == 'item52') {
 		 //console.log(results);
 	 //});
 }
+
+
+function showPDF(data, res) {
+	console.log('in showPdf')
+	console.log(data.question1)
+	const doc = new PDFDocument();
+	res.setHeader('Content-disposition', 'inline; filename="' + data + '"')
+  	res.setHeader('Content-type', 'application/pdf');
+
+  	/*
+  	let template = {
+  		name: "Paul",
+  		docType: "patent",
+  		paragraph1: "The author, NAME, seeks a DOCTYPE for";
+  	}
+	*/
+
+    var inputs = [data.question2, data.question5];
+	var paragraph = "This NAME is a person of interest for DOCTYPE and NAME";
+	var keys = ['NAME', 'DOCTYPE'];
+
+	for( var i = 0; i < keys.length; i++) {
+		var re = new RegExp(keys[i], 'g');
+		paragraph = paragraph.replace(re, inputs[i]);
+	}
+
+  	doc.y = 300;
+  	doc.text(paragraph, 50, 50);
+
+  	doc.pipe(res);
+  	doc.end();
+}
+
+
+
