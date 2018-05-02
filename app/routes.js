@@ -483,9 +483,9 @@ function showPDF(data, res) {
   	}
 	*/
 
-    var inputs = [data.question2, data.question5];
-	var paragraph = "This NAME is a person of interest for DOCTYPE and NAME";
-	var keys = ['NAME', 'DOCTYPE'];
+    var inputs = [data.question2, data.question4];
+	var paragraph = "Non Disclosure Agreement between <dp> and <r>";
+	var keys = ['<dp>', '<r>'];
 
 	for( var i = 0; i < keys.length; i++) {
 		var re = new RegExp(keys[i], 'g');
