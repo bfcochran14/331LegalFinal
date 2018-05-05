@@ -446,13 +446,17 @@ else if (req.body.question8 == 'item51') {
 else if (req.body.question8 == 'item52') {
 	req.body.question8 = 'District of Columbia';
 }
+else{
+	req.body.question8 = ''
+}
+
 	console.log("post recieved")
 	db.collection('nda').save(req.body, (err, result) => {
 		console.log('inside collection function')
     	if (err) return console.log(err)
 
     	console.log('saved to database')
-    	//console.log(req.body)
+    	console.log(req.body)
     	//res.redirect('/pdf')
     	showPDF(req.body, res);
   	})
@@ -513,7 +517,7 @@ function showPDF(data, res) {
 	}
 
 
-	var disclosingPartyName = data.question1 + '' + data.question2;
+	var disclosingPartyName = data.question1 + ' ' + data.question2;
 
 	if(data.question7 == 'No'){
 		var registeredAns = ''
@@ -536,10 +540,28 @@ function showPDF(data, res) {
 	var paragraph2 = 'This Confidentiality Agreement (the "Agreement"), dated as of <(today)>("Effective Date"), is between <dp>,<a> <dpRstate> <isR> <le> located at <dpstate> ("Disclosing Party"), and <r>, <a> <rState> resident located at <r-loc>("Recipient").';
 	var paragraph3 = '1. In connection with <p> (the "Purpose"), Disclosing Party may disclose to Recipient, or Recipient may otherwise receive access to, Confidential Information (as defined below). Recipient shall use the Confidential Information solely for the Purpose and, subject to Section 3, shall not disclose or permit access to Confidential Information other than to <itsdp!> affiliates and <itsdp!> or <<their(dp!)>> employees, and officers, directors, shareholders, attorneys, accountants and financial advisors (collectively, "Representatives") who: (a) need to know such Confidential Information for the Purpose; (b) know of the existence and terms of this Agreement; and (c) are bound by written confidentiality agreements no less protective of the Confidential Information than the terms contained herein. Recipient shall safeguard the Confidential Information from unauthorized use, access, or disclosure using at least the degree of care <itr!> uses to protect <itsr!> most sensitive information and no less than a reasonable degree of care. Recipient shall promptly notify Disclosing Party of any unauthorized use or disclosure of Confidential Information and use <itsr!> best efforts to cooperate with Disclosing Party to prevent further use or disclosure. Recipient will be responsible for any breach of this Agreement caused by <itsr!> Representatives.'
 	var paragraph4 = '2. "Confidential Information" means all non-public, proprietary or confidential information relating to Disclosing Party\'s <p>, in oral, visual, written, electronic, or other tangible or intangible form, whether or not marked or designated as "confidential," and all notes, analyses, summaries, and other materials prepared by Recipient or any of <itsr!> Representatives that contain, are based on, or otherwise reflect, to any degree, any of the foregoing ("Notes"); provided, however, that Confidential Information does not include any information that: (a) is or becomes generally available to the public other than as a result of Recipient\'s or <itsr!> Representatives\' act or omission; (b) is obtained by Recipient or <itsr!> Representatives on a non-confidential basis from a third party that was not legally or contractually restricted from disclosing such information; (c) was in Recipient\'s or <itsr!> Representatives\' possession, as established by documentary evidence, before Disclosing Party\'s disclosure hereunder; or (d) was or is independently developed by Recipient or <itsr!> Representatives, as established by documentary evidence, without using any Confidential Information. Confidential Information also includes: (x) the facts that the parties are in discussions regarding the Purpose and that Confidential Information has been disclosed; and (y) any terms, conditions or arrangements discussed.'
+	var paragraph5 = '3. If Recipient or any of <itsr!> Representatives is required by applicable law or a valid legal order to disclose any Confidential Information, Recipient shall, before such disclosure, notify Disclosing Party of such requirements so that Disclosing Party may seek a protective order or other remedy, and Recipient shall reasonably assist Disclosing Party therewith. If Recipient remains legally compelled to make such disclosure, <itr!> shall: (a) only disclose that portion of the Confidential Information that, in the written opinion of <itsr!> outside legal counsel, Recipient is required to disclose; and (b) use reasonable efforts to ensure that such Confidential Information is afforded confidential treatment.'
+	var paragraph6 = '4. On the expiration of this Agreement or otherwise at Disclosing Party\'s request, Recipient shall within 2 weeks, at Disclosing Party\'s option, either return to Disclosing Party or destroy all Confidential Information in <itsdp!> and <itsdp!> Representatives\' possession other than Notes, and destroy all Notes, and certify in writing to Disclosing Party the destruction of such Confidential Information.'
+	var paragraph7 = '5. Disclosing Party has no obligation under this Agreement to (a) disclose any Confidential Information or (b) negotiate for, enter into, or otherwise pursue the Purpose. Disclosing Party provides all Confidential Information without any representation or warranty, expressed or implied, as to the accuracy or completeness thereof, and Disclosing Party will have no liability to Recipient or any other person relating to Recipient\'s use of any of the Confidential Information or any errors therein or omissions therefrom.'
+	var paragraph8 = '6. Disclosing Party retains <itsdp!> entire right, title, and interest in and to all Confidential Information, and no disclosure of Confidential Information hereunder will be construed as a license, assignment, or other transfer of any such right, title, and interest to Recipient or any other person.'
+	var paragraph9 = '7. The rights and obligations of the parties under this Agreement expire <exp> after the Effective Date; provided that with respect to Confidential Information that is a trade secret under the laws of any jurisdiction, such rights and obligations will survive such expiration until, if ever, such Confidential Information loses <itsdp!> trade secret protection other than due to an act or omission of Recipient or <itsr!> Representatives.'
+	var paragraph10 = '8. Recipient acknowledges and agrees that any breach of this Agreement will cause injury to Disclosing Party for which money damages would be an inadequate remedy and that, in addition to remedies at law, Disclosing Party is entitled to equitable relief as a remedy for any such breach.'
+	var paragraph11 = '9. This Agreement and all matters relating hereto are governed by, and construed in accordance with, the laws of << Alabama(?-loc)>>, without regard to the conflict of laws provisions of such State. Any legal suit, action, or proceeding relating to this Agreement must be instituted in the federal or state courts located in <<Winston-Salem, Forsyth County, North Carolina(?-loc)>>. Each Party irrevocably submits to the exclusive jurisdiction of such courts in any such suit, action, or proceeding.'
+	var paragraph12 = '10. All notices must be in writing and addressed to the relevant party at <itsr!> address set out in the preamble (or to such other address such party specifies in accordance with this Section 10). All notices must be personally delivered or sent prepaid by nationally recognized courier or certified or registered mail, return receipt requested, and are effective on actual receipt. '
+	var paragraph13 = '11. This Agreement is the entire agreement of the parties regarding this subject matter, and supersedes all prior and contemporaneous understandings, agreements, representations, and warranties, whether written or oral, regarding such subject matter. This Agreement may only be amended, modified, waived, or supplemented by an agreement in writing signed by both parties.'
+	var paragraph14 = 'IN WITNESS WHEREOF, the parties hereto have executed this Agreement as of the Effective Date.'
+	var paragraph15 = '<dp>'
+	var paragraph16 = 'By ____________________________________'
+	var paragraph17 = 'Name:  <dp-title>'
+	var paragraph18	= 'Title:___________________________________________'
+	var paragraph19 = '<r>'
+	var paragraph20 = 'By ____________________________________'
+	var paragraph21 = 'Name: <r-title> '
+	var paragraph22 = 'Title:___________________________________________'
 	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>' ];
 
 
-	contract = paragraph1 + '\n'+ '\n' + paragraph2 + '\n' +'\n' + paragraph3 + '\n' + '\n' + paragraph4
+	contract = paragraph1 + '\n'+ '\n' + paragraph2 + '\n' +'\n' + paragraph3 + '\n' + '\n' + paragraph4 + '\n' + '\n' + paragraph5 + '\n' + '\n' + paragraph6 + '\n' + '\n' + paragraph7 + '\n' + '\n' + paragraph8 + '\n' + '\n' + paragraph9 + '\n' + '\n' + paragraph10 + '\n' + '\n' + paragraph11 + '\n' + '\n' + paragraph12 + '\n' + '\n' + paragraph13 + '\n' + '\n' + paragraph14 + '\n' + '\n' + paragraph15 + '\n' + '\n' + paragraph16 + '\n' + '\n' + paragraph17 + '\n' + '\n' + paragraph18 + '\n' + '\n' + paragraph19 + '\n' + '\n' + paragraph20 + '\n' + '\n' + paragraph21 + '\n' + '\n' + paragraph22
 	//REPLACING PARAGRAPH 1//
 	for( var i = 0; i < keys.length; i++) {
 		var re = new RegExp(keys[i], 'g');
@@ -547,14 +569,17 @@ function showPDF(data, res) {
 	}
 
 	////////QUESTIONS NEEDED//////////
-	//Todays date
-	//disclosing party address
-	//recipient's name- <r>
-	//recipient's state- <rState>
-	//reipient's address- <r-loc>
-	//change question 4 should be both first and last
+
+
+
+
+
+
 	//the purpose???????
-	//genders
+
+	//when does it expire?
+	//ask Raina about the state and location in p11
+	//ask Raina about dp and r title
 
   	doc.y = 300;
   	doc.text(contract, 50, 50);
