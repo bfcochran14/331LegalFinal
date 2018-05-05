@@ -482,18 +482,82 @@ function showPDF(data, res) {
   		paragraph1: "The author, NAME, seeks a DOCTYPE for";
   	}
 	*/
-
-    var inputs = [data.question2, data.question4];
-	var paragraph = "Non Disclosure Agreement between <dp> and <r>";
-	var keys = ['<dp>', '<r>'];
-
-	for( var i = 0; i < keys.length; i++) {
-		var re = new RegExp(keys[i], 'g');
-		paragraph = paragraph.replace(re, inputs[i]);
+	var dpgender = 'male'
+	var rgender = 'female'
+	//Data scrubbing//
+	//Pronouns
+	if(dpgender == 'male'){
+		var dppronoun = 'him'
+	}
+	else{
+		var dppronoun = 'her'
+	}
+	if(rgender == 'male'){
+		var rppronoun = 'him'
+	}
+	else{
+		var rppronoun = 'her'
+	}
+	//Possesives
+	if(dpgender == 'male'){
+		var dppossesive = 'his'
+	}
+	else{
+		var dppossesive = 'hers'
+	}
+	if(rgender == 'male'){
+		var rppossesive = 'his'
+	}
+	else{
+		var rppossesive = 'hers'
 	}
 
+
+	var disclosingPartyName = data.question1 + '' + data.question2;
+	
+	if(data.question7 == 'No'){
+		var registeredAns = ''
+	}
+	else{
+		var registeredAns = 'registered'
+	}
+	///////////questions///////////
+	//1- last name
+	//2- first name
+	//3- email address
+	//4- disclosing parties name <- is this not the name of the person making the contract?????
+	//5- type of legal entity- <le>
+	//6- State- <dpState>
+	//7- Are they Registered- <isR>
+	//8- Registered State- <dpRstate>
+
+    var inputs = [disclosingPartyName, /*data.question3,*/ data.question4, data.question5, data.question6, registeredAns, data.question8, dppossesive, rppossesive, dppronoun, rppronoun];
+	var paragraph1 = 'Non Disclosure Agreement between <dp> and <r>';
+	var paragraph2 = 'This Confidentiality Agreement (the "Agreement"), dated as of <(today)>("Effective Date"), is between <dp>,<a> <dpRstate> <isR> <le> located at <dpstate> ("Disclosing Party"), and <r>, <a> <rState> resident located at <r-loc>("Recipient").';
+	var paragraph3 = '1. In connection with <p> (the "Purpose"), Disclosing Party may disclose to Recipient, or Recipient may otherwise receive access to, Confidential Information (as defined below). Recipient shall use the Confidential Information solely for the Purpose and, subject to Section 3, shall not disclose or permit access to Confidential Information other than to <itsdp!> affiliates and <itsdp!> or <<their(dp!)>> employees, and officers, directors, shareholders, attorneys, accountants and financial advisors (collectively, "Representatives") who: (a) need to know such Confidential Information for the Purpose; (b) know of the existence and terms of this Agreement; and (c) are bound by written confidentiality agreements no less protective of the Confidential Information than the terms contained herein. Recipient shall safeguard the Confidential Information from unauthorized use, access, or disclosure using at least the degree of care <itr!> uses to protect <itsr!> most sensitive information and no less than a reasonable degree of care. Recipient shall promptly notify Disclosing Party of any unauthorized use or disclosure of Confidential Information and use <itsr!> best efforts to cooperate with Disclosing Party to prevent further use or disclosure. Recipient will be responsible for any breach of this Agreement caused by <itsr!> Representatives.'
+	var paragraph4 = '2. "Confidential Information" means all non-public, proprietary or confidential information relating to Disclosing Party\'s <p>, in oral, visual, written, electronic, or other tangible or intangible form, whether or not marked or designated as "confidential," and all notes, analyses, summaries, and other materials prepared by Recipient or any of <itsr!> Representatives that contain, are based on, or otherwise reflect, to any degree, any of the foregoing ("Notes"); provided, however, that Confidential Information does not include any information that: (a) is or becomes generally available to the public other than as a result of Recipient\'s or <itsr!> Representatives\' act or omission; (b) is obtained by Recipient or <itsr!> Representatives on a non-confidential basis from a third party that was not legally or contractually restricted from disclosing such information; (c) was in Recipient\'s or <itsr!> Representatives\' possession, as established by documentary evidence, before Disclosing Party\'s disclosure hereunder; or (d) was or is independently developed by Recipient or <itsr!> Representatives, as established by documentary evidence, without using any Confidential Information. Confidential Information also includes: (x) the facts that the parties are in discussions regarding the Purpose and that Confidential Information has been disclosed; and (y) any terms, conditions or arrangements discussed.'
+	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>' ];
+
+
+	contract = paragraph1 + '\n'+ '\n' + paragraph2 + '\n' +'\n' + paragraph3 + '\n' + '\n' + paragraph4
+	//REPLACING PARAGRAPH 1//
+	for( var i = 0; i < keys.length; i++) {
+		var re = new RegExp(keys[i], 'g');
+		contract = contract.replace(re, inputs[i]);
+	}
+
+	////////QUESTIONS NEEDED//////////
+	//Todays date
+	//disclosing party address
+	//recipient's name- <r>
+	//recipient's state- <rState>
+	//reipient's address- <r-loc>
+	//change question 4 should be both first and last
+	//the purpose???????
+	//genders
+
   	doc.y = 300;
-  	doc.text(paragraph, 50, 50);
+  	doc.text(contract, 50, 50);
 
   	doc.pipe(res);
   	doc.end();
