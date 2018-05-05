@@ -514,7 +514,7 @@ function showPDF(data, res) {
 
 
 	var disclosingPartyName = data.question1 + '' + data.question2;
-	
+
 	if(data.question7 == 'No'){
 		var registeredAns = ''
 	}
@@ -562,6 +562,3 @@ function showPDF(data, res) {
   	doc.pipe(res);
   	doc.end();
 }
-
-
-

@@ -20,14 +20,23 @@
   <script>
 
 
+
+
     // variable names are "question#"
-    var surveyJSON = {pages:[{name:"Background",elements:[
+    var surveyJSON = {pages:[
+      {name:"Background",elements:[
         {type:"text",name:"question2",title:"Last Name",isRequired:true},
         {type:"text",name:"question1",title:"First name",isRequired:true},
-        {type:"text",name:"question3",title:"Email address",isRequired:true}]},
+        {type:"text",name:"question3",title:"Email address",isRequired:true},
+        {type:"text",name:"question9",title:"What is today's date?  (mm/dd/year)",isRequired:true}
+      ]},
 
         {name:"Disclosing Party Information",elements:[
-          {type:"text",name:"question4",title:"Disclosing Parties Name",isRequired:true},
+          {type:"text",name:"question4",title:"Recipent's Name",isRequired:true},
+          {type:"text",name:"question11",title:"What is the Recipent's address?",isRequired:true},
+          {type:"dropdown",name:"question12",title:"What is the Recipent's gender?",isRequired:true, choices:[{value:"item1",text:"Male"}, {value: "item2", text:"Female"}]},
+          {type:"dropdown",name:"question13",title:"What is the Disclosing Party's gender?",isRequired:true, choices:[{value:"item1",text:"Male"}, {value: "item2", text:"Female"}]},
+          {type:"text",name:"question10",title:"What is the Disclosing Party's address?",isRequired:true},
           {type:"radiogroup",name:"question5",title:"What type of Legal Entity is the Disclosing Party?",isRequired:true,choices:[{value:"item1",text:"An individual"},{value:"item2",text:"A limited liability company"},{value:"item3",text:"A corperation"},{value:"item4",text:"A partnership"},{value:"item5",text:"A sole proprietorship "},{value:"item6",text:"Another type od company not listed above"}]},
           {type:"dropdown",name:"question6",title:"What state?",isRequired:true,choices:[
             {value:"item1",text:"Alabama"},{value:"item2",text:"Alaska"},{value:"item3",text:"Arizona"},
@@ -73,8 +82,9 @@
             {value:"item42",text:"Tennessee"},{value:"item43",text:"Texas"},{value:"item44",text:"Utah"},
             {value:"item45",text:"Vermont"},{value:"item46",text:"Virginia"},{value:"item47",text:"Washington"},
             {value:"item48",text:"West Virginia"},{value:"item49",text:"Wisconsin"},
-            {value:"item50",text:"Wyoming"},{value:"item51",text:"Puerto Rico"},{value:"item52",text:"District of Columbia"}]}]}],
-            showProgressBar:"bottom"}
+            {value:"item50",text:"Wyoming"},{value:"item51",text:"Puerto Rico"},{value:"item52",text:"District of Columbia"}]}
+          ]}
+        ],showProgressBar:"bottom"}
 
 
   function sendDataToServer(survey) {
