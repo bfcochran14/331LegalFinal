@@ -676,6 +676,9 @@ function showPDF(data, res) {
 		var rppossesive = 'hers'
 	}
 
+	//A/An
+	var aORan = ' a/an'
+
 
 	var disclosingPartyName = data.question1 + ' ' + data.question2;
 
@@ -702,7 +705,7 @@ function showPDF(data, res) {
 	//14- r state- <rState>
 	//15- agreement expires- <exp>
 
-    var inputs = [disclosingPartyName, /*data.question3,*/ data.question4, data.question5, data.question6, registeredAns, data.question8, dppossesive, rppossesive, dppronoun, rppronoun, data.question9, data.question10, data.question11, data.question14, data.question15];
+    var inputs = [disclosingPartyName, /*data.question3,*/ data.question4, data.question5, data.question6, registeredAns, data.question8, dppossesive, rppossesive, dppronoun, rppronoun, data.question9, data.question10, data.question11, data.question14, data.question15, aORan];
 	var paragraph1 = 'Non Disclosure Agreement between <dp> and <r>';
 	var paragraph2 = 'This Confidentiality Agreement (the "Agreement"), dated as of <today>("Effective Date"), is between <dp>,<a> <dpRstate> <isR> <le> located at <dpstate> ("Disclosing Party"), and <r>, <a> <rState> resident located at <r-loc>("Recipient").';
 	var paragraph3 = '1. In connection with <p> (the "Purpose"), Disclosing Party may disclose to Recipient, or Recipient may otherwise receive access to, Confidential Information (as defined below). Recipient shall use the Confidential Information solely for the Purpose and, subject to Section 3, shall not disclose or permit access to Confidential Information other than to <itsdp!> affiliates and <itdp!> or <itsdp!> employees, and officers, directors, shareholders, attorneys, accountants and financial advisors (collectively, "Representatives") who: (a) need to know such Confidential Information for the Purpose; (b) know of the existence and terms of this Agreement; and (c) are bound by written confidentiality agreements no less protective of the Confidential Information than the terms contained herein. Recipient shall safeguard the Confidential Information from unauthorized use, access, or disclosure using at least the degree of care <itr!> uses to protect <itsr!> most sensitive information and no less than a reasonable degree of care. Recipient shall promptly notify Disclosing Party of any unauthorized use or disclosure of Confidential Information and use <itsr!> best efforts to cooperate with Disclosing Party to prevent further use or disclosure. Recipient will be responsible for any breach of this Agreement caused by <itsr!> Representatives.'
@@ -725,7 +728,7 @@ function showPDF(data, res) {
 	var paragraph20 = 'By ____________________________________'
 	var paragraph21 = 'Name: <r-title> '
 	var paragraph22 = 'Title:___________________________________________'
-	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>', '<today>', '<dp-loc>', '<r-loc>', '<rState>', '<exp>' ];
+	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>', '<today>', '<dp-loc>', '<r-loc>', '<rState>', '<exp>', '<a>' ];
 
 
 	contract = paragraph1 + '\n'+ '\n' + paragraph2 + '\n' +'\n' + paragraph3 + '\n' + '\n' + paragraph4 + '\n' + '\n' + paragraph5 + '\n' + '\n' + paragraph6 + '\n' + '\n' + paragraph7 + '\n' + '\n' + paragraph8 + '\n' + '\n' + paragraph9 + '\n' + '\n' + paragraph10 + '\n' + '\n' + paragraph11 + '\n' + '\n' + paragraph12 + '\n' + '\n' + paragraph13 + '\n' + '\n' + paragraph14 + '\n' + '\n' + paragraph15 + '\n' + '\n' + paragraph16 + '\n' + '\n' + paragraph17 + '\n' + '\n' + paragraph18 + '\n' + '\n' + paragraph19 + '\n' + '\n' + paragraph20 + '\n' + '\n' + paragraph21 + '\n' + '\n' + paragraph22
