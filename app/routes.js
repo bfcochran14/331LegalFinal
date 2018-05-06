@@ -545,6 +545,9 @@ function showPDF(data, res) {
 	//13- dp gender
 	//14- r state- <rState>
 	//15- agreement expires- <exp>
+	//16- recpiant legal entity? not used.
+	//17- is recepiant registered? not used.
+	//18- what state is recpiant register?
 
     var inputs = [disclosingPartyName, /*data.question3,*/ data.question4, data.question5, data.question6, registeredAns, data.question8, dppossesive, rppossesive, dppronoun, rppronoun, data.question9, data.question10, data.question11, data.question14, data.question15, aORan];
 	var paragraph1 = 'Non Disclosure Agreement between <dp> and <r>';
