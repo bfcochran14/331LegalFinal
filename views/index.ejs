@@ -1,31 +1,54 @@
 
 <!doctype html>
 <html>
+
 <head>
     <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <!-- load fontawesome -->
     <style>
-        body        { padding-top:80px; }
-        .jumbotron {
-          background:     hsl(81,76%,44%);
-          color:          rgba(8,27,51,.8);
-          font-family:    "futura-pt";
-          font-style:     normal;}
+        body {
+            padding-top: 80px;
+            background: rgba(8,27,51,.8);
+        }
+        .container{
+          text-align: center;
+          color:      rgb(255,255,255);
+        }
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        button {
+            background-color: #081b33 !important;
+            color: #ffffff !important;
+        }
+        p{
+          font-size: xx-large;
+        }
     </style>
 </head>
-<body>
-<div class="container">
 
-    <div class="jumbotron text-center">
+<body>
+    <div class="container">
+        <img src="erdois.png" class="center" /> &ensp;
+
         <h1> NDA Generator</h1>
 
         <p>Login or Register with:</p>
 
         <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Local Login</a>
         <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Local Signup</a>
-    </div>
 
-</div>
+        <img src="logo.png" class="center"/>
+
+
+    </div>
 </body>
+
 </html>
