@@ -572,11 +572,9 @@ function showPDF(data, res) {
 	var paragraph20 = 'By ____________________________________'
 	var paragraph21 = 'Name: <r-title> '
 	var paragraph22 = 'Title:___________________________________________'
-<<<<<<< HEAD
-	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>' ];
-=======
+
 	var keys = ['<dp>', '<r>', '<le>', '<dpstate>', '<isR>', '<dpRstate>', '<itsdp!>', '<itsr!>', '<itdp!>', '<itr!>', '<today>', '<dp-loc>', '<r-loc>', '<rState>', '<exp>', '<a>' ];
->>>>>>> 39c84900e10cdada5bf8558239c4b65feca4c597
+
 
 
 	contract = paragraph1 + '\n'+ '\n' + paragraph2 + '\n' +'\n' + paragraph3 + '\n' + '\n' + paragraph4 + '\n' + '\n' + paragraph5 + '\n' + '\n' + paragraph6 + '\n' + '\n' + paragraph7 + '\n' + '\n' + paragraph8 + '\n' + '\n' + paragraph9 + '\n' + '\n' + paragraph10 + '\n' + '\n' + paragraph11 + '\n' + '\n' + paragraph12 + '\n' + '\n' + paragraph13 + '\n' + '\n' + paragraph14 + '\n' + '\n' + paragraph15 + '\n' + '\n' + paragraph16 + '\n' + '\n' + paragraph17 + '\n' + '\n' + paragraph18 + '\n' + '\n' + paragraph19 + '\n' + '\n' + paragraph20 + '\n' + '\n' + paragraph21 + '\n' + '\n' + paragraph22
